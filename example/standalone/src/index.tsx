@@ -1,18 +1,18 @@
 import TOML from "@iarna/toml";
-import { Quiz, QuizView } from "@wcrichto/quiz";
+import { type Quiz, QuizView } from "@wcrichto/quiz";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import quizStr from "./quiz-example.toml?raw";
 
-let App = () => {
-  let quiz = TOML.parse(quizStr) as any as Quiz;
-  return (
-    <div>
-      <h1>Example quiz</h1>
-      <QuizView name="example-quiz" quiz={quiz} />
-    </div>
-  );
+const App = () => {
+	const quiz = TOML.parse(quizStr) as unknown as Quiz;
+	return (
+		<div>
+			<h1>Example quiz</h1>
+			<QuizView name="example-quiz" quiz={quiz} />
+		</div>
+	);
 };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
